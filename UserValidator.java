@@ -10,8 +10,8 @@ public class UserValidator {
         System.out.println("1.FirstName");
         System.out.println("2.LastName");
         System.out.println("3.Email");
+        System.out.println("4.Phone Number ");
         System.out.println("Enter option to check");
-
         int inputOption = scan.nextInt();
         switch (inputOption){
             case 1 : System.out.println("Enter your first name");
@@ -24,8 +24,13 @@ public class UserValidator {
                 break;
             case 3 : System.out.println("Enter your Email");
                 String email=scan.next();
-                emailvalidation(email);
+                emailValidation(email);
                 break;
+            case 4 : System.out.println("Enter your Mobile");
+                String mobile=scan.next();
+                mobileValidation(mobile);
+                break;
+
             default:
                 System.out.println("Enter a valid Option");
         }
@@ -39,8 +44,12 @@ public class UserValidator {
         System.out.println("Name: " + lastName + "\nValid: " + valid);
     }
 
-    public static void emailvalidation(String email){
+    public static void emailValidation(String email){
         boolean valid = email.matches("^[A-Za-z0-9+_.-]+@(.+)$");
         System.out.println("Name: " + email + "\nValid: " + valid);
+    }
+    public static void mobileValidation(String mobile){
+        boolean valid = mobile.matches("^[1-9][0-9]+[ ]{0,1}+[1-9][0-9]{9}$");
+        System.out.println("Name: " + mobile + "\nValid: " + valid);
     }
 }
